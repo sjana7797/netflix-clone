@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
-import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import { Inter } from "next/font/google";
 
 import "react-toastify/dist/ReactToastify.min.css";
 
