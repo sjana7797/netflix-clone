@@ -1,9 +1,7 @@
-import React from "react";
-
 type Props = {};
 
 function index({}: Props) {
-  return <div>index</div>;
+  return <main>index</main>;
 }
 
 export default index;

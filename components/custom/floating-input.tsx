@@ -1,9 +1,4 @@
-import {
-  ChangeEvent,
-  FC,
-  HTMLInputTypeAttribute,
-  InputHTMLAttributes,
-} from "react";
+import type { ChangeEvent, FC, HTMLInputTypeAttribute, RefObject } from "react";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { cn } from "@/lib/utils";
@@ -19,6 +14,7 @@ type Props = {
   inputClassName?: string;
   labelClassName?: string;
   className?: string;
+  required?: boolean;
 };
 
 const FloatingInput: FC<Props> = ({
@@ -30,6 +26,7 @@ const FloatingInput: FC<Props> = ({
   inputClassName = "",
   labelClassName = "",
   className = "",
+  required,
 }) => {
   return (
     <div className={cn("relative w-full", className)}>
@@ -43,6 +40,7 @@ const FloatingInput: FC<Props> = ({
         value={value}
         type={type}
         onChange={onChange}
+        required={required}
       />
       <Label
         className={cn(
