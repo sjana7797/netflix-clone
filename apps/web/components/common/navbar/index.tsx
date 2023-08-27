@@ -27,7 +27,7 @@ function Navbar({}: Props) {
       <nav
         className={cn(
           "flex items-center px-4 py-6 transition duration-200 md:px-16",
-          `${showBackground ? "bg-slate-900 bg-opacity-90" : "bg-transparent"}`,
+          `${showBackground ? "bg-slate-950 bg-opacity-90" : "bg-transparent"}`,
         )}
       >
         <img src="/images/logo.png" className="h-4 lg:h-7" alt="logo" />

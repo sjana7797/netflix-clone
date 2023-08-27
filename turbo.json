@@ -8,5 +8,6 @@
       "cache": false
     },
     "lint": {}
-  }
+  },
+  "globalDotEnv": [".env"]
 }
