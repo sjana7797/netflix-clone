@@ -9,4 +9,25 @@
   #__next {
     @apply h-full;
   }
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #db0000 #020617;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #020617;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #db0000;
+    border-radius: 14px;
+    border: 3px solid #020617;
+  }
 }

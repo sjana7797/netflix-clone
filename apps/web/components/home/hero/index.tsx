@@ -2,9 +2,10 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import type { TMDBResults, TMDBContent } from "types";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Info, Play } from "lucide-react";
 import { useContentPreviewModal } from "@/store";
+import Loading from "./loading";
 
 type Props = {};
 
@@ -49,12 +50,12 @@ function Hero({}: Props) {
   }, []);
 
   return loading ? (
-    <h2>Loading…</h2>
+    <Loading />
   ) : (
     <section
       style={{ backgroundImage: `url(${posterPath})` }}
       className={cn(
-        "relative h-[140vh] w-screen bg-cover bg-center bg-no-repeat",
+        "relative w-screen bg-cover bg-center bg-no-repeat lg:h-[105vh]",
       )}
     >
       <div className="absolute bottom-0 left-0 right-0 top-0  bg-gradient-to-b from-slate-950/50 to-black/90 " />
@@ -68,13 +69,12 @@ function Hero({}: Props) {
           {randomContent.overview}
         </p>
         <div className="flex gap-2">
-          <Button variant={"primary"} className="gap-2 capitalize">
-            <Play className="h-4 w-4 md:h-7 md:w-7" fill="white" />
+          <Button className="gap-2 capitalize">
+            <Play className="h-4 w-4 md:h-7 md:w-7" fill="currentColor" />
             play
           </Button>
           <Button
-            variant={"ghost"}
-            className="gap-2 capitalize"
+            className="gap-2 bg-slate-500/50 capitalize text-slate-200 hover:text-slate-900"
             onClick={() => {
               setContent(randomContent);
               setIsOpen(true);

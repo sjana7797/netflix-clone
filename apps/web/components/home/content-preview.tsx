@@ -1,11 +1,6 @@
+"use client";
 import { useContentPreviewModal } from "@/store";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import type { Genre, TMDBVideosResults } from "types";
 import { useEffect, useState } from "react";
 import YoutubeReactPlayer from "react-player/youtube";
@@ -24,7 +19,7 @@ function ContentPreview({}: Props) {
   const [genres, setGenres] = useState<Genre[]>([]);
 
   // controls
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -59,12 +54,24 @@ function ContentPreview({}: Props) {
     fetchContent();
   }, [content]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      setTrailer("");
+      setGenres([]);
+    }
+  }, [isOpen]);
+
   return (
     <Dialog open={isOpen} modal onOpenChange={setIsOpen}>
-      <DialogContent className="scrollbar-hide h-full max-h-[80vh] w-full max-w-2xl overflow-hidden overflow-y-scroll">
+      <DialogContent className="h-full max-h-[80vh] w-full max-w-2xl overflow-hidden overflow-y-scroll scrollbar-hide">
+        <DialogHeader>
+          <h2 className="truncate text-base font-semibold">
+            {content?.title || content?.name || content?.original_title}
+          </h2>
+        </DialogHeader>
         <div className="relative pt-[56.25%]">
           <YoutubeReactPlayer
-            url={`https://www.youtube.com/watch?v=${trailer}`}
+            url={`https://www.youtube.com/watch?v=${trailer}?rel=0`}
             controls={false}
             muted={isMuted}
             playing={isPlaying}
