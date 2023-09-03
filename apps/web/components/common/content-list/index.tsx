@@ -8,8 +8,8 @@ type Props = {
 };
 
 async function fetchContent(apiKey: TMDBApiKey) {
-  console.log(apiKey, "apiKey");
-  const response = await fetch(`http://localhost:3000/api/tmdb/${apiKey}`);
+  console.log("fetching", process.env.API_URL);
+  const response = await fetch(`${process.env.API_URL}/api/tmdb/${apiKey}`);
   const data: TMDBResults = await response.json();
 
   return data;
