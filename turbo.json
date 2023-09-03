@@ -2,12 +2,20 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dependsOn": ["db:generate"]
     },
     "dev": {
+      "cache": false,
+      "dependsOn": ["db:generate"]
+    },
+    "lint": {},
+    "db:generate": {
       "cache": false
     },
-    "lint": {}
+    "db:push": {
+      "cache": false
+    }
   },
   "globalDotEnv": [".env"]
 }
