@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">= 18"
+  },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc",
