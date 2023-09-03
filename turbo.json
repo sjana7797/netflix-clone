@@ -15,6 +15,9 @@
     },
     "db:push": {
       "cache": false
+    },
+    "server#build": {
+      "cache": true
     }
   },
   "globalDotEnv": [".env"]
